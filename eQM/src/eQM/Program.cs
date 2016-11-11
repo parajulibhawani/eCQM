@@ -47,7 +47,7 @@ namespace eQM
                     var htmlDocument2 = new HtmlDocument();
                     htmlDocument2.LoadHtml(newHtml2);
 
-
+                    //add breakpoints and check. also add how you'd want to save the downloaded page.
                 }
             }
 
