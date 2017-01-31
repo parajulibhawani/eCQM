@@ -1,5 +1,5 @@
---temp-output:C:\Users\b162-\OneDrive\documents\visual studio 2015\Projects\eQM\src\eQM\obj\Debug\netcoreapp1.0\
---out:C:\Users\b162-\OneDrive\documents\visual studio 2015\Projects\eQM\src\eQM\bin\Debug\netcoreapp1.0\eQM.dll
+--temp-output:C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\obj\Debug\netcoreapp1.0\
+--out:C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\bin\Debug\netcoreapp1.0\eQM.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -87,6 +87,7 @@
 --reference:C:\Users\b162-\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\b162-\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\b162-\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
+--reference:C:\Users\b162-\.nuget\packages\System.Xml.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XmlDocument.dll
 --reference:C:\Users\b162-\.nuget\packages\System.Xml.XPath\4.0.1\ref\netstandard1.3\System.Xml.XPath.dll
-C:\Users\b162-\OneDrive\documents\visual studio 2015\Projects\eQM\src\eQM\Program.cs
-C:\Users\b162-\OneDrive\documents\visual studio 2015\Projects\eQM\src\eQM\Properties\AssemblyInfo.cs
+C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\Program.cs
+C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\Properties\AssemblyInfo.cs

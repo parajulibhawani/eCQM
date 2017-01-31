@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-
+using System.Xml;
+using System.Xml.Linq;
+using System.Xml.Serialization;
 namespace eQM
 {
     public class Program
@@ -36,19 +38,27 @@ namespace eQM
                 newHtmlDocument.LoadHtml(newHtml);
                 var htmlFiles = newHtmlDocument.DocumentNode.Descendants("span")
                     .Where(n => n.GetAttributeValue("class", "")
-                    .Equals("file")).ToList();
-                
-                foreach(var htmlFile in htmlFiles)
+                    .Equals("file")).ToArray();
+                for(var i =0; i < 2; i++)
                 {
-                    var htmlUrl = htmlFile.Descendants("a")?.ElementAt(0).ChildAttributes("href")?.FirstOrDefault().Value;
+                     var htmlUrl = htmlFiles[1].Descendants("a")?.ElementAt(0).ChildAttributes("href")?.FirstOrDefault().Value;
                     await Task.Delay(2000);
-                    var htmlHttpClient = new HttpClient();
-                    var newHtml2 = await htmlHttpClient.GetStringAsync(htmlUrl);
-                    var htmlDocument2 = new HtmlDocument();
-                    htmlDocument2.LoadHtml(newHtml2);
+                     var htmlHttpClient = new HttpClient();
+                     var newHtml2 = await htmlHttpClient.GetStringAsync(htmlUrl);
+                     
+                    var xmlDoc = XDocument.Parse(newHtml2);
+                    xmlDoc.CreateReader();
 
-                    //add breakpoints and check. also add how you'd want to save the downloaded page.
+                    var title = xmlDoc.Root.Elements().First(node => node.Name.LocalName == "title").Attribute("value").Value;
+                    
                 }
+                //foreach(var htmlFile in htmlFiles)
+                //{
+                //    var htmlUrl = htmlFile.Descendants("a")?.EnumerableQuery(0).ChildAttributes("href")?.FirstOrDefault().Value;
+                //    
+
+                //    //add breakpoints and check. also add how you'd want to save the downloaded page.
+                //}
             }
 
         }

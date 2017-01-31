@@ -7,8 +7,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\b162-\OneDrive\documents\visual studio 2015\Projects\eQM\src\eQM\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\b162-\OneDrive\documents\visual studio 2015\Projects\eQM\src\eQM\bin\Debug\netcoreapp1.0\eQM.dll"
+"C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\bin\Debug\netcoreapp1.0\eQM.dll"
 -r:"C:\Users\b162-\.nuget\packages\HtmlAgilityPack.NetCore\1.5.0.1\lib\netstandard1.3\HtmlAgilityPack.NetCore.dll"
 -r:"C:\Users\b162-\.nuget\packages\Microsoft.CSharp\4.0.1\ref\netstandard1.0\Microsoft.CSharp.dll"
 -r:"C:\Users\b162-\.nuget\packages\Microsoft.VisualBasic\10.0.1\ref\netstandard1.1\Microsoft.VisualBasic.dll"
@@ -83,6 +83,7 @@
 -r:"C:\Users\b162-\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\b162-\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\b162-\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
+-r:"C:\Users\b162-\.nuget\packages\System.Xml.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XmlDocument.dll"
 -r:"C:\Users\b162-\.nuget\packages\System.Xml.XPath\4.0.1\ref\netstandard1.3\System.Xml.XPath.dll"
-"C:\Users\b162-\OneDrive\documents\visual studio 2015\Projects\eQM\src\eQM\Program.cs"
-"C:\Users\b162-\OneDrive\documents\visual studio 2015\Projects\eQM\src\eQM\Properties\AssemblyInfo.cs"
+"C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\Program.cs"
+"C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\Properties\AssemblyInfo.cs"

@@ -1966,10 +1966,10 @@
           "System.Xml.ReaderWriter": "4.0.11"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {}
+          "ref/netstandard1.3/System.Xml.XmlDocument.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/_._": {}
+          "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
       },
       "System.Xml.XPath/4.0.1": {
@@ -6621,7 +6621,8 @@
   "projectFileDependencyGroups": {
     "": [
       "HtmlAgilityPack.NetCore >= 1.5.0.1",
-      "Microsoft.NETCore.App >= 1.0.0"
+      "Microsoft.NETCore.App >= 1.0.0",
+      "System.Xml.XmlDocument >= 4.0.1"
     ],
     ".NETCoreApp,Version=v1.0": []
   },
