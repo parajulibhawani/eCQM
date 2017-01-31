@@ -52,13 +52,9 @@ namespace eQM
                     var title = xmlDoc.Root.Elements().First(node => node.Name.LocalName == "title").Attribute("value").Value;
                     
                 }
-                //foreach(var htmlFile in htmlFiles)
-                //{
-                //    var htmlUrl = htmlFile.Descendants("a")?.EnumerableQuery(0).ChildAttributes("href")?.FirstOrDefault().Value;
-                //    
-
+                
                 //    //add breakpoints and check. also add how you'd want to save the downloaded page.
-                //}
+               
             }
 
         }
