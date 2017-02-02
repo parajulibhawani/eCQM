@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "c692b60606c28da1eba2a1d3b4d37a432027e431"
+    "signature": "e2a8b58179908134e416a4e52d5cae1d45ff726d"
   },
   "compilationOptions": {},
   "targets": {
@@ -14,7 +14,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "1.1.0",
           "Microsoft.EntityFrameworkCore.Design.Core": "1.0.0-preview2-final",
           "Microsoft.EntityFrameworkCore.Design": "1.1.0",
-          "Microsoft.EntityFrameworkCore.Tools": "1.1.0-preview4-final"
+          "Microsoft.EntityFrameworkCore.Tools": "1.1.0-preview4-final",
+          "system.xml.xpath.xmldocument": "4.0.0"
         },
         "runtime": {
           "eQM.dll": {}
@@ -1884,6 +1885,21 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "system.xml.xpath.xmldocument/4.0.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.IO": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Threading": "4.3.0",
+          "System.Xml.ReaderWriter": "4.3.0"
+        },
+        "runtime": {
+          "lib/dotnet/System.Xml.XPath.XmlDocument.dll": {}
+        }
       }
     }
   },
@@ -2597,6 +2613,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ=="
+    },
+    "system.xml.xpath.xmldocument/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-toGFsezsdAJ3Fkau0l386iGBg3qfYauQrM4haX1nWPYnUOWb0hXfAEVIi47/Ke4ET3gl9h9ZppKiws8QWeJVyQ=="
     }
   }
 }

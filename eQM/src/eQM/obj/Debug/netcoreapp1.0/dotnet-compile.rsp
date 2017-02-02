@@ -137,6 +137,7 @@
 --reference:C:\Users\b162-\.nuget\packages\System.Xml.XDocument\4.3.0\ref\netstandard1.3\System.Xml.XDocument.dll
 --reference:C:\Users\b162-\.nuget\packages\System.Xml.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XmlDocument.dll
 --reference:C:\Users\b162-\.nuget\packages\System.Xml.XPath\4.0.1\ref\netstandard1.3\System.Xml.XPath.dll
+--reference:C:\Users\b162-\.nuget\packages\system.xml.xpath.xmldocument\4.0.0\ref\dotnet\System.Xml.XPath.XmlDocument.dll
 C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\Measure.cs
 C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\MeasureDBContext.cs
 C:\Users\b162-\Source\Repos\eCQM\eQM\src\eQM\Program.cs

@@ -47,14 +47,21 @@ namespace eQM
                      var newHtml2 = await htmlHttpClient.GetStringAsync(htmlUrl);
                      
                     var xmlDoc = XDocument.Parse(newHtml2);
-                    xmlDoc.CreateReader();
+                    var title = xmlDoc.Root.Elements()?.First(node => node.Name.LocalName == "title")?.Attribute("value").Value;
 
-                    var title = xmlDoc.Root.Elements().First(node => node.Name.LocalName == "title").Attribute("value").Value;
+                    var elements = xmlDoc.Root.Descendants()?.Where(n => n.Name.LocalName == "subjectOf").ToList();
+                        //?.First(node => node.Name.LocalName == "value")?.Attribute("value").Value;
+                    foreach(var element in elements)
+                    {
+                        var measure = element.Descendants()?.Where(n => n.Name.LocalName == "value")
+                            ?.First(node => node.Name.LocalName == "value")?.Attribute("value").Value; 
+                    }
                     
+                   
                 }
-                
-                //    //add breakpoints and check. also add how you'd want to save the downloaded page.
-               
+
+                   //add breakpoints and check. also add how you'd want to save the downloaded page. Elements().Where(n=>n.("value").Value == "").First(n=>n.Name.LocalName == "subjectOf").Attribute("value").Value;
+
             }
 
         }
