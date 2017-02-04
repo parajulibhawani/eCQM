@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using System.Xml.XPath;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace eQM
 {
     public class Program
@@ -27,8 +30,8 @@ namespace eQM
             var tds = htmlDocument.DocumentNode.Descendants("td")
                 .Where(node => node.GetAttributeValue("class", "")
                 .Equals("views-field views-field-title active")).ToList();
-            
-            foreach(var td in tds)
+
+            foreach (var td in tds)
             {
                 var uri = "https://ecqi.healthit.gov" + td.Descendants("a")?.FirstOrDefault()?.ChildAttributes("href")?.FirstOrDefault().Value;
                 await Task.Delay(5000);
@@ -39,32 +42,46 @@ namespace eQM
                 var htmlFiles = newHtmlDocument.DocumentNode.Descendants("span")
                     .Where(n => n.GetAttributeValue("class", "")
                     .Equals("file")).ToArray();
-                for(var i =0; i < 2; i++)
+                for (var i = 0; i < 2; i++)
                 {
-                     var htmlUrl = htmlFiles[1].Descendants("a")?.ElementAt(0).ChildAttributes("href")?.FirstOrDefault().Value;
+                    var htmlUrl = htmlFiles[1].Descendants("a")?.ElementAt(0).ChildAttributes("href")?.FirstOrDefault().Value;
                     await Task.Delay(2000);
-                     var htmlHttpClient = new HttpClient();
-                     var newHtml2 = await htmlHttpClient.GetStringAsync(htmlUrl);
-                     
+                    var htmlHttpClient = new HttpClient();
+                    var newHtml2 = await htmlHttpClient.GetStringAsync(htmlUrl);
+                    var newMeasure = new Measure();
                     var xmlDoc = XDocument.Parse(newHtml2);
-                    var title = xmlDoc.Root.Elements()?.First(node => node.Name.LocalName == "title")?.Attribute("value").Value;
 
-                    var elements = xmlDoc.Root.Descendants()?.Where(n => n.Name.LocalName == "subjectOf").ToList();
-                        //?.First(node => node.Name.LocalName == "value")?.Attribute("value").Value;
-                    foreach(var element in elements)
-                    {
-                        var measure = element.Descendants()?.Where(n => n.Name.LocalName == "value")
-                            ?.First(node => node.Name.LocalName == "value")?.Attribute("value").Value; 
-                    }
                     
-                   
+                    var measureNumber = xmlDoc.Root.Elements()?.Where(n => n.Name.LocalName == "subjectOf")?.ElementAt(0).Descendants()?.Where(n => n.Name.LocalName == "value")
+                            ?.First(node => node.Name.LocalName == "value")?.Attribute("value").Value;
+                    var rationale = xmlDoc.Root.Elements()?.Where(n => n.Name.LocalName == "subjectOf")?.ElementAt(9).Descendants()?.Where(n => n.Name.LocalName == "value")
+                            ?.First(node => node.Name.LocalName == "value")?.Attribute("value").Value;
+                    var clinicalRec = xmlDoc.Root.Elements()?.Where(n => n.Name.LocalName == "subjectOf")?.ElementAt(10).Descendants()?.Where(n => n.Name.LocalName == "value")
+                            ?.First(node => node.Name.LocalName == "value")?.Attribute("value").Value;
+                    var title = xmlDoc.Root.Elements()?.First(node => node.Name.LocalName == "title")?.Attribute("value").Value;
+                    newMeasure.Title = title;
+                    //var xmlDocPath = new XPathDocument(newHtml2);
+                    //xmlDocPath.CreateNavigator();
+                    var elements = xmlDoc.Root.Elements()?.Where(n => n.Name.LocalName == "subjectOf")?
+                        .Descendants()?.Where(n => n.Name.LocalName == "code")
+                       
+
+                       ?.ToList();
+
+
+                  foreach (var element in elements)
+                  {
+
+                        var measure = element.NextNode.ElementsAfterSelf().ToList();
+                        
+
+                  }
+
+                    //add breakpoints and check. also add how you'd want to save the downloaded page. 
+
                 }
 
-                   //add breakpoints and check. also add how you'd want to save the downloaded page. Elements().Where(n=>n.("value").Value == "").First(n=>n.Name.LocalName == "subjectOf").Attribute("value").Value;
-
             }
-
         }
     }
-    
 }
