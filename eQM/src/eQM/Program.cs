@@ -10,6 +10,7 @@ using System.Xml.Serialization;
 using System.Xml.XPath;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace eQM
 {
     public class Program
@@ -62,19 +63,29 @@ namespace eQM
                     newMeasure.Title = title;
                     //var xmlDocPath = new XPathDocument(newHtml2);
                     //xmlDocPath.CreateNavigator();
-                    var elements = xmlDoc.Root.Elements()?.Where(n => n.Name.LocalName == "subjectOf")?
-                        .Descendants()?.Where(n => n.Name.LocalName == "code")
+                    var elements = xmlDoc.Root.Elements()?.Where(n => n.Name.LocalName == "subjectOf")
                        
-
                        ?.ToList();
-
-
-                  foreach (var element in elements)
+                  
+                  foreach(var element in elements)
                   {
-
-                        var measure = element.NextNode.ElementsAfterSelf().ToList();
+                        var references = element.Descendants()?.Where(n => n.Name.LocalName == "measureAttribute")?.ToList();
                         
-
+                        foreach(var reference in references)
+                        {
+                            var displayNames = reference?.Descendants()?.Where(n=>n.Name.LocalName == "displayName").ToList();
+                            foreach(var displayName in displayNames)
+                            {
+                                var displayNameValue = displayName?.Attribute("value").Value;
+                                if (displayNameValue == "Reference")
+                                {
+                                    var refValue = reference?.LastNode
+                                        ?.ElementsAfterSelf()
+                                        ?.First(n=>n.Name.LocalName == "value").Attribute("value")?.Value;
+                                }
+                            }
+                           
+                        }
                   }
 
                     //add breakpoints and check. also add how you'd want to save the downloaded page. 
