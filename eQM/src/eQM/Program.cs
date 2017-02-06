@@ -60,11 +60,9 @@ namespace eQM
                     var clinicalRec = xmlDoc.Root.Elements()?.Where(n => n.Name.LocalName == "subjectOf")?.ElementAt(10).Descendants()?.Where(n => n.Name.LocalName == "value")
                             ?.First(node => node.Name.LocalName == "value")?.Attribute("value").Value;
                     var title = xmlDoc.Root.Elements()?.First(node => node.Name.LocalName == "title")?.Attribute("value").Value;
-                    newMeasure.Title = title;
-                    //var xmlDocPath = new XPathDocument(newHtml2);
-                    //xmlDocPath.CreateNavigator();
+                    //newMeasure.Title = title;
+                    
                     var elements = xmlDoc.Root.Elements()?.Where(n => n.Name.LocalName == "subjectOf")
-                       
                        ?.ToList();
                   
                   foreach(var element in elements)
@@ -79,16 +77,13 @@ namespace eQM
                                 var displayNameValue = displayName?.Attribute("value").Value;
                                 if (displayNameValue == "Reference")
                                 {
-                                    var refValue = reference?.LastNode
-                                        ?.ElementsAfterSelf()
-                                        ?.First(n=>n.Name.LocalName == "value").Attribute("value")?.Value;
+                                    var refValue = (reference?.LastNode as XElement)
+                                        ?.Attribute("value")?.Value;
                                 }
                             }
                            
                         }
                   }
-
-                    //add breakpoints and check. also add how you'd want to save the downloaded page. 
 
                 }
 
